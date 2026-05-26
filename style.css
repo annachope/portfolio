@@ -329,11 +329,6 @@ section{
         display: none;
     }
 
-    #menu-icon:hover ~ .nav-links,
-    .nav-links:hover {
-        display: flex;
-    }
-
     .nav-links.active {
         display: flex;
     }
