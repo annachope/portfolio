@@ -3,7 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio Website</title>
+    <title>Anna Chope — Graphic &amp; Brand Designer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
 </head>
@@ -42,13 +45,13 @@
                 <div class="text">
                     <h3>Hi, I'm</h3>
                     <h1>Anna Chope</h1>
-                    <span>Graphic Designer</span>
+                    <span><span class="role">Graphic Designer</span></span>
                 </div>
-            
+
 
             <div class="btn-group">
-                <div class="btn">Download CV</div>
-                <div class="btn">Contact Me</div>
+                <a href="#" class="btn">Download CV</a>
+                <a href="#contact" class="btn">Contact Me</a>
             </div>
 
             <div class="socials">
@@ -61,70 +64,15 @@
         </div>
     </section>
 
-    <section id="experience" class="experience">
-
-        <h2 class="section-title">Experience</h2>
-        <div class="experience-info">   
-
-            <div class="grid">
-
-                <div class="grid-card">
-                    <i class="fa-solid fa-palette"></i>
-                    <span>Graphic Designer</span>
-                    <h3>2 years</h3>
-                    <p>Lorem ipsum dolor, sit amet consectetur 
-                        adipisicing elit. Dolor, architecto?</p>
-                </div>
-
-                <div class="grid-card">
-                    <i class="fa-solid fa-images"></i>  
-                    <span>Social Media & "Content Creator</span>
-                    <h3>2 years</h3>
-                    <p>Lorem ipsum dolor, sit amet consectetur 
-                        adipisicing elit. Dolor, architecto?</p>
-                </div>
-
-                <div class="grid-card">
-                    <i class="fa-solid fa-computer"></i>
-                    <span>Graphic & Web Design Intern</span>
-                    <h3>2 years</h3>
-                    <p>Lorem ipsum dolor, sit amet consectetur 
-                        adipisicing elit. Dolor, architecto?</p>
-                </div>
-
-                <div class="grid-card">
-                    <i class="fa-solid fa-video"></i>
-                    <span>Freelancer</span>
-                    <h3>2 years</h3>
-                    <p>Lorem ipsum dolor, sit amet consectetur 
-                        adipisicing elit. Dolor, architecto?</p>
-                </div>
-
-                <div class="grid-card">
-                    <i class="fa-solid fa-shop"></i>
-                    <span>Shop Owner</span>
-                    <h3>2 years</h3>
-                    <p>Lorem ipsum dolor, sit amet consectetur 
-                        adipisicing elit. Dolor, architecto?</p>
-                </div>
-                </div>
-
-                <img src="profile.JPG" alt="">
-
-
-        </div>
-
-    </section>
-
     <section id="projects" class="projects">
         <h2 class="section-title">Recent Projects</h2>
         <div class="projects-grid">
 
             <div class="project-card">
-                <img src="project-1.JPG" alt="Brand Identity Design">
+                <img src="images/switch-to-friendliai/01.png" alt="Switch to FriendliAI landing page">
                 <div class="project-info">
-                    <h3>Brand Identity Design</h3>
-                    <p>A complete visual identity system for a local boutique — from logo to brand guidelines.</p>
+                    <h3>Switch to FriendliAI</h3>
+                    <p>A high-converting acquisition landing page, built in Webflow, driving high-spend AI inference users to migrate to FriendliAI.</p>
                     <div class="btn-group">
                         <a href="project-1.html" class="btn">View Project</a>
                     </div>
@@ -132,10 +80,10 @@
             </div>
 
             <div class="project-card">
-                <img src="project-1.JPG" alt="Social Media Campaign">
+                <img src="images/weaviate-social-media/02.png" alt="Developer Growth Content for Weaviate">
                 <div class="project-info">
-                    <h3>Social Media Campaign</h3>
-                    <p>A multi-platform content campaign that grew an audience by 40% over three months.</p>
+                    <h3>Developer Growth Content</h3>
+                    <p>My role on the Weaviate Growth team goes beyond content creation. I help translate deep technical concepts into compelling, shareable narratives that capture developer attention and drive community engagement.</p>
                     <div class="btn-group">
                         <a href="project-2.html" class="btn">View Project</a>
                     </div>
@@ -143,12 +91,45 @@
             </div>
 
             <div class="project-card">
-                <img src="project-1.JPG" alt="Editorial Layout Design">
+                <img src="images/brand-identity/01.png" alt="Monky Energy brand identity">
                 <div class="project-info">
-                    <h3>Editorial Layout Design</h3>
-                    <p>A print and digital magazine spread exploring the intersection of art and technology.</p>
+                    <h3>Monky Energy</h3>
+                    <p>A complete brand identity and packaging system for a healthy energy drink sweetened naturally with monk fruit.</p>
                     <div class="btn-group">
                         <a href="project-3.html" class="btn">View Project</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <img src="images/etsy-shop/06.jpg" alt="Design by Chope music posters">
+                <div class="project-info">
+                    <h3>Design by Chope</h3>
+                    <p>A self-started Etsy shop of music-inspired posters celebrating iconic artists and albums.</p>
+                    <div class="btn-group">
+                        <a href="project-4.html" class="btn">View Project</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <img src="images/smilee/01.png" alt="Spotify UX Report">
+                <div class="project-info">
+                    <h3>Spotify UX Report</h3>
+                    <p>An in-depth UX evaluation of Spotify — its brand identity, user persona, and interface structure.</p>
+                    <div class="btn-group">
+                        <a href="project-5.html" class="btn">View Project</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <img src="images/clustr/01.png" alt="Clustr smartwatch UI concept">
+                <div class="project-info">
+                    <h3>Clustr</h3>
+                    <p>A smartwatch UI concept that helps people manage social anxiety by surfacing real-time crowd density.</p>
+                    <div class="btn-group">
+                        <a href="project-6.html" class="btn">View Project</a>
                     </div>
                 </div>
             </div>
@@ -157,8 +138,71 @@
 
     </section>
 
+    <section id="experience" class="experience">
 
-   <script src="script.js"></script> 
-    
+        <h2 class="section-title">Experience</h2>
+        <div class="grid">
+
+            <div class="grid-card">
+                <i class="fa-solid fa-palette"></i>
+                <span>Graphic Designer</span>
+                <h3>2 years</h3>
+                <p>Lorem ipsum dolor, sit amet consectetur
+                    adipisicing elit. Dolor, architecto?</p>
+            </div>
+
+            <div class="grid-card">
+                <i class="fa-solid fa-images"></i>
+                <span>Social Media & Content Creator</span>
+                <h3>2 years</h3>
+                <p>Lorem ipsum dolor, sit amet consectetur
+                    adipisicing elit. Dolor, architecto?</p>
+            </div>
+
+            <div class="grid-card">
+                <i class="fa-solid fa-computer"></i>
+                <span>Graphic & Web Design Intern</span>
+                <h3>2 years</h3>
+                <p>Lorem ipsum dolor, sit amet consectetur
+                    adipisicing elit. Dolor, architecto?</p>
+            </div>
+
+            <div class="grid-card">
+                <i class="fa-solid fa-video"></i>
+                <span>Freelancer</span>
+                <h3>2 years</h3>
+                <p>Lorem ipsum dolor, sit amet consectetur
+                    adipisicing elit. Dolor, architecto?</p>
+            </div>
+
+            <div class="grid-card">
+                <i class="fa-solid fa-shop"></i>
+                <span>Shop Owner</span>
+                <h3>2 years</h3>
+                <p>Lorem ipsum dolor, sit amet consectetur
+                    adipisicing elit. Dolor, architecto?</p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <footer id="contact" class="footer">
+        <h2 class="section-title">Let's work together</h2>
+        <p>Have a project in mind, or just want to say hello? I'm always open to new design work and collaborations.</p>
+        <a href="mailto:hello@annachope.com" class="footer-mail">hello@annachope.com</a>
+        <div class="socials">
+            <a href="https://www.instagram.com/chopedesign/" target="_blank" rel="noopener"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://www.etsy.com/shop/DesignByChope" target="_blank" rel="noopener"><i class="fa-brands fa-etsy"></i></a>
+            <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+        </div>
+        <div class="footer-meta">
+            <span>© 2026 Anna Chope</span>
+            <a href="brand-guide.html">Brand Guide</a>
+        </div>
+    </footer>
+
+   <script src="script.js"></script>
+
 </body>
 </html>
