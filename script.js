@@ -36,21 +36,31 @@ if (menuIcon && navLinks) {
     });
 }
 
-/* ---------- Animated rotating role ---------- */
+/* ---------- Rotating title (simple crossfade) ---------- */
 const role = document.querySelector('.role');
 
 if (role) {
-    const roles = ['Graphic Designer', 'Brand Designer', 'Content Designer', 'UX Designer'];
+    const titles = [
+        'Graphic Designer',
+        'Motion Graphics Designer',
+        'Videographer',
+        'UI Designer',
+        'Illustrator',
+        'Yoga Instructor',
+        'Adequate Pianist'
+    ];
+    const HOLD = 2600;   // how long each title stays
+    const FADE = 500;    // matches the CSS transition
     let i = 0;
 
     setInterval(() => {
-        role.classList.add('swap');           // fade/slide out
+        role.classList.add('is-out');            // fade + rise out
         setTimeout(() => {
-            i = (i + 1) % roles.length;
-            role.textContent = roles[i];
-            role.classList.remove('swap');     // fade/slide back in
-        }, 300);
-    }, 2600);
+            i = (i + 1) % titles.length;
+            role.textContent = titles[i];
+            role.classList.remove('is-out');     // settle back in
+        }, FADE);
+    }, HOLD);
 }
 
 /* ---------- Scroll reveal ---------- */
