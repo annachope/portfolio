@@ -625,10 +625,21 @@ section {
 
 .project-page-section p:last-child { margin-bottom: 0; }
 
+/* media grouped inside a section sits close to its text, but breathes */
+.project-page-section > .project-page-video,
+.project-page-section > .project-page-image-single,
+.project-page-section > .project-page-image-row {
+    margin-top: 1.75rem;
+}
+
 .project-page-image-row {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 1.25rem;
+}
+
+.project-page-image-row.cols-3 {
+    grid-template-columns: repeat(3, 1fr);
 }
 
 .project-page-image-single figure,
@@ -784,7 +795,8 @@ section {
         gap: 2rem;
     }
 
-    .project-page-image-row { grid-template-columns: 1fr; }
+    .project-page-image-row,
+    .project-page-image-row.cols-3 { grid-template-columns: 1fr; }
     .project-page-gallery { columns: 2; }
 }
 
