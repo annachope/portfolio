@@ -1,3 +1,11 @@
 .DS_Store
 .DS_Store?
 .claude/
+.agents/
+skills-lock.json
+Alata/
+images/colors.png
+images/gradient-example.png
+images/gradient-example-with-guy.png
+images/guy.png
+images/guy-initials.svg

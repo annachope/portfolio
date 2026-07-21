@@ -12,15 +12,20 @@
     <meta name="twitter:card" content="summary_large_image">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Alata&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css?v=3">
-    <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
+    <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/light/style.css">
 </head>
 <body>
     <header class="header">
-        <a href="#" class="logo"><span>Anna Chope</span></a>
+        <a href="#" class="logo" aria-label="Anna Chope — home">
+            <img src="images/mascot/guy-initials.svg" alt="Anna Chope" class="logo-mark">
+        </a>
 
-          <i class="ph ph-list" id="menu-icon"></i>
+          <button class="menu-toggle" id="menu-icon" aria-label="Toggle menu" aria-expanded="false">
+              <span></span>
+              <span></span>
+          </button>
 
         <ul class="nav-links">
             <li>
@@ -37,32 +42,43 @@
             </li>
         </ul>
 
-        <button class="visit-btn">Visit Instagram</button>
+        <button class="visit-btn">
+            <span>Visit Instagram</span>
+            <span class="btn-icon"><i class="ph-light ph-arrow-up-right"></i></span>
+        </button>
 
     </header>
 
 
     <section id="about" class="about">
-        <div class="about-container">   
-            <img src="profile.JPG" alt="Portrait of Anna Chope">
+        <div class="about-container">
+            <div class="portrait-frame">
+                <img src="profile.jpeg" alt="Portrait of Anna Chope">
+            </div>
 
             <div class="info-box">
 
                 <div class="text">
-                    <h3>Hi, I'm</h3>
+                    <span class="eyebrow">Hello, I'm</span>
                     <h1>Anna Chope</h1>
                     <span><span class="role">Graphic Designer</span></span>
                 </div>
 
 
             <div class="btn-group">
-                <a href="images/resume-2026.pdf" class="btn" target="_blank" rel="noopener">View Resume</a>
-                <a href="#contact" class="btn">Contact Me</a>
+                <a href="images/resume-2026.pdf" class="btn" target="_blank" rel="noopener">
+                    <span>View Resume</span>
+                    <span class="btn-icon"><i class="ph-light ph-arrow-up-right"></i></span>
+                </a>
+                <a href="#contact" class="btn">
+                    <span>Contact Me</span>
+                    <span class="btn-icon"><i class="ph-light ph-arrow-up-right"></i></span>
+                </a>
             </div>
 
             <div class="socials">
-                <i class="ph ph-github-logo"></i>
-                <i class="ph ph-linkedin-logo"></i>
+                <i class="ph-light ph-github-logo"></i>
+                <i class="ph-light ph-linkedin-logo"></i>
             </div>
 
         </div>
@@ -71,7 +87,11 @@
     </section>
 
     <section id="projects" class="projects">
-        <h2 class="section-title">Recent projects</h2>
+        <img src="images/mascot/guy.svg" alt="" class="mascot-watermark top-right" aria-hidden="true">
+        <div class="section-heading">
+            <span class="eyebrow">Selected work</span>
+            <h2 class="section-title">Recent projects</h2>
+        </div>
         <div class="projects-grid">
 
             <div class="project-card">
@@ -83,7 +103,10 @@
                 from the ground up to align a globally distributed
                 marketing team across the Bay Area and Seoul.</p>
                     <div class="btn-group">
-                        <a href="project-1.html" class="btn">View Project</a>
+                        <a href="project-1.html" class="btn">
+                            <span>View Project</span>
+                            <span class="btn-icon"><i class="ph-light ph-arrow-up-right"></i></span>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -94,7 +117,10 @@
                     <h3>Tabsi</h3>
                     <p>A video and motion graphics campaign promoting Tabsi, an AI-powered candidate tracker.</p>
                     <div class="btn-group">
-                        <a href="project-7.html" class="btn">View Project</a>
+                        <a href="project-7.html" class="btn">
+                            <span>View Project</span>
+                            <span class="btn-icon"><i class="ph-light ph-arrow-up-right"></i></span>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -105,7 +131,10 @@
                     <h3>Developer Growth Content</h3>
                     <p>My role on the Weaviate Growth team goes beyond content creation. I help translate deep technical concepts into compelling, shareable narratives that capture developer attention and drive community engagement.</p>
                     <div class="btn-group">
-                        <a href="project-2.html" class="btn">View Project</a>
+                        <a href="project-2.html" class="btn">
+                            <span>View Project</span>
+                            <span class="btn-icon"><i class="ph-light ph-arrow-up-right"></i></span>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -116,7 +145,10 @@
                     <h3>Case de Cafe</h3>
                     <p>Logo and brand identity for a coffee truck startup — modern, warm, and homemade.</p>
                     <div class="btn-group">
-                        <a href="project-8.html" class="btn">View Project</a>
+                        <a href="project-8.html" class="btn">
+                            <span>View Project</span>
+                            <span class="btn-icon"><i class="ph-light ph-arrow-up-right"></i></span>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -127,7 +159,10 @@
                     <h3>Monky Energy</h3>
                     <p>A complete brand identity and packaging system for a healthy energy drink sweetened naturally with monk fruit.</p>
                     <div class="btn-group">
-                        <a href="project-3.html" class="btn">View Project</a>
+                        <a href="project-3.html" class="btn">
+                            <span>View Project</span>
+                            <span class="btn-icon"><i class="ph-light ph-arrow-up-right"></i></span>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -138,7 +173,10 @@
                     <h3>Anna Chope Design</h3>
                     <p>A self-started Etsy shop of music-inspired posters celebrating iconic artists and albums.</p>
                     <div class="btn-group">
-                        <a href="project-4.html" class="btn">View Project</a>
+                        <a href="project-4.html" class="btn">
+                            <span>View Project</span>
+                            <span class="btn-icon"><i class="ph-light ph-arrow-up-right"></i></span>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -149,7 +187,10 @@
                     <h3>Spotify UX Report</h3>
                     <p>An in-depth UX evaluation of Spotify — its brand identity, user persona, and interface structure.</p>
                     <div class="btn-group">
-                        <a href="project-5.html" class="btn">View Project</a>
+                        <a href="project-5.html" class="btn">
+                            <span>View Project</span>
+                            <span class="btn-icon"><i class="ph-light ph-arrow-up-right"></i></span>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -160,7 +201,10 @@
                     <h3>Clustr</h3>
                     <p>A smartwatch UI concept that helps people manage social anxiety by surfacing real-time crowd density.</p>
                     <div class="btn-group">
-                        <a href="project-6.html" class="btn">View Project</a>
+                        <a href="project-6.html" class="btn">
+                            <span>View Project</span>
+                            <span class="btn-icon"><i class="ph-light ph-arrow-up-right"></i></span>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -170,40 +214,43 @@
     </section>
 
     <section id="experience" class="experience">
-
-        <h2 class="section-title">Experience</h2>
+        <img src="images/mascot/guy.svg" alt="" class="mascot-watermark bottom-left" aria-hidden="true">
+        <div class="section-heading">
+            <span class="eyebrow">Career</span>
+            <h2 class="section-title">Experience</h2>
+        </div>
         <div class="grid">
 
             <div class="grid-card">
-                <i class="ph ph-palette"></i>
+                <span class="icon-chip"><i class="ph-light ph-palette"></i></span>
                 <span>Graphic Designer</span>
-                <h3>2 years</h3>
+                <h3>1 year</h3>
                 <p>Brand systems, marketing collateral, and digital assets — turning rough briefs into clear, on-brand visuals across print and screen.</p>
             </div>
 
             <div class="grid-card">
-                <i class="ph ph-images"></i>
+                <span class="icon-chip"><i class="ph-light ph-images"></i></span>
                 <span>Social Media &amp; Content Creator</span>
-                <h3>2 years</h3>
+                <h3>1 year</h3>
                 <p>Ran content calendars end to end: shooting and editing short-form video and growing engaged audiences with a consistent visual voice.</p>
             </div>
 
             <div class="grid-card">
-                <i class="ph ph-monitor"></i>
+                <span class="icon-chip"><i class="ph-light ph-monitor"></i></span>
                 <span>Graphic &amp; Web Design Intern</span>
-                <h3>1 year</h3>
+                <h3>6 months</h3>
                 <p>Supported the design team on layout, web mockups, and production work while learning to ship against real brand guidelines.</p>
             </div>
 
             <div class="grid-card">
-                <i class="ph ph-video-camera"></i>
+                <span class="icon-chip"><i class="ph-light ph-video-camera"></i></span>
                 <span>Freelancer</span>
-                <h3>3 years</h3>
+                <h3>Ongoing</h3>
                 <p>Direct client work — logos, posters, and small sites — owning scope, feedback, and delivery from first call to final files.</p>
             </div>
 
             <div class="grid-card">
-                <i class="ph ph-storefront"></i>
+                <span class="icon-chip"><i class="ph-light ph-storefront"></i></span>
                 <span>Shop Owner</span>
                 <h3>Ongoing</h3>
                 <p>Run Design by Chope, a self-started poster shop: design, listings, fulfillment, and a community of music-loving customers.</p>
@@ -214,13 +261,15 @@
     </section>
 
     <footer id="contact" class="footer">
+        <span class="eyebrow">Get in touch</span>
         <h2 class="section-title">Let's work together</h2>
         <p>Have a project in mind, or just want to say hello? I'm always open to new design work and collaborations.</p>
         <a href="mailto:annachope@yahoo.com" class="footer-mail">annachope@yahoo.com</a>
+        <img src="images/mascot/guy-initials.svg" alt="" class="footer-mascot" aria-hidden="true">
         <div class="socials">
-            <a href="https://www.instagram.com/chopedesign/" target="_blank" rel="noopener"><i class="ph ph-instagram-logo"></i></a>
-            <a href="https://www.etsy.com/shop/DesignByChope" target="_blank" rel="noopener"><i class="ph ph-storefront"></i></a>
-            <a href="#"><i class="ph ph-linkedin-logo"></i></a>
+            <a href="https://www.instagram.com/chopedesign/" target="_blank" rel="noopener"><i class="ph-light ph-instagram-logo"></i></a>
+            <a href="https://www.etsy.com/shop/DesignByChope" target="_blank" rel="noopener"><i class="ph-light ph-storefront"></i></a>
+            <a href="#"><i class="ph-light ph-linkedin-logo"></i></a>
         </div>
         <div class="footer-meta">
             <span>© 2026 Anna Chope</span>

@@ -6,16 +6,21 @@
     <title>Case de Cafe — Anna Chope</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Alata&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
+    <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/light/style.css">
 </head>
 <body>
 
     <header class="header">
-        <a href="index.html" class="logo"><span>Anna Chope</span></a>
+        <a href="index.html" class="logo" aria-label="Anna Chope — home">
+            <img src="images/mascot/guy-initials.svg" alt="Anna Chope" class="logo-mark">
+        </a>
 
-        <i class="ph ph-list" id="menu-icon"></i>
+        <button class="menu-toggle" id="menu-icon" aria-label="Toggle menu" aria-expanded="false">
+            <span></span>
+            <span></span>
+        </button>
 
         <ul class="nav-links">
             <li><a href="index.html#about">About</a></li>
@@ -24,13 +29,16 @@
             <li><a href="index.html#contact">Contact</a></li>
         </ul>
 
-        <button class="visit-btn">Visit Instagram</button>
+        <button class="visit-btn">
+            <span>Visit Instagram</span>
+            <span class="btn-icon"><i class="ph-light ph-arrow-up-right"></i></span>
+        </button>
     </header>
 
     <section class="project-page">
 
         <a href="index.html#projects" class="back-btn">
-            <i class="ph ph-arrow-left"></i> Back to Projects
+            <i class="ph-light ph-arrow-left"></i> Back to Projects
         </a>
 
         <div class="project-page-hero">

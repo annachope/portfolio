@@ -3,27 +3,17 @@ const menuIcon = document.getElementById('menu-icon');
 const navLinks = document.querySelector('.nav-links');
 
 if (menuIcon && navLinks) {
-    let closeTimer;
-
     const openNav = () => {
-        clearTimeout(closeTimer);
         navLinks.classList.add('active');
+        menuIcon.classList.add('active');
+        menuIcon.setAttribute('aria-expanded', 'true');
     };
 
     const closeNav = () => {
-        clearTimeout(closeTimer);
         navLinks.classList.remove('active');
+        menuIcon.classList.remove('active');
+        menuIcon.setAttribute('aria-expanded', 'false');
     };
-
-    const scheduleClose = () => {
-        closeTimer = setTimeout(closeNav, 150);
-    };
-
-    // Hover — mouse devices only (mouseenter doesn't fire on touch)
-    menuIcon.addEventListener('mouseenter', openNav);
-    navLinks.addEventListener('mouseenter', () => clearTimeout(closeTimer));
-    menuIcon.addEventListener('mouseleave', scheduleClose);
-    navLinks.addEventListener('mouseleave', closeNav);
 
     // Click icon — toggle open/closed
     menuIcon.addEventListener('click', () => {
@@ -33,6 +23,15 @@ if (menuIcon && navLinks) {
     // Click a nav link — always close
     navLinks.querySelectorAll('a').forEach(link => {
         link.addEventListener('click', closeNav);
+    });
+
+    // Click outside the nav — close
+    document.addEventListener('click', (e) => {
+        if (navLinks.classList.contains('active') &&
+            !navLinks.contains(e.target) &&
+            !menuIcon.contains(e.target)) {
+            closeNav();
+        }
     });
 }
 
