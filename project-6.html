@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Alata&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=4">
+    <link rel="stylesheet" href="style.css?v=5">
     <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/light/style.css">
 </head>
 <body>
@@ -35,20 +35,16 @@
         </button>
     </header>
 
-    <section class="project-page">
-
-        <a href="index.html#projects" class="back-btn">
-            <i class="ph-light ph-arrow-left"></i> Back to Projects
-        </a>
-
-        <div class="project-page-hero">
+    <div class="hero-split">
+        <div class="hero-split-media">
+            <img src="images/clustr/01.png" alt="Clustr smartwatch concept">
+        </div>
+        <div class="hero-split-content">
+            <a href="index.html#projects" class="back-btn">
+                <i class="ph-light ph-arrow-left"></i> Back to Projects
+            </a>
             <h1>Clustr</h1>
             <p class="project-page-tagline">A UI concept that helps people with social anxiety navigate and avoid densely crowded areas in their daily lives.</p>
-        </div>
-
-        <img src="images/clustr/01.png" alt="Clustr smartwatch concept" class="project-page-hero-img">
-
-        <div class="project-page-overview">
             <div class="project-page-meta">
                 <div class="meta-item">
                     <span class="meta-label">Role</span>
@@ -63,9 +59,13 @@
                     <span class="meta-value">Figma</span>
                 </div>
             </div>
-            <div class="project-page-summary">
-                <p>Clustr is a smartwatch-first concept supporting individuals facing medical or mental-health challenges in daily life. The goal was to build a UI that gives users real-time crowd-density information, so they can navigate around busy places and better manage social anxiety.</p>
-            </div>
+        </div>
+    </div>
+
+    <section class="project-page">
+
+        <div class="project-page-summary">
+            <p>Clustr is a smartwatch-first concept supporting individuals facing medical or mental-health challenges in daily life. The goal was to build a UI that gives users real-time crowd-density information, so they can navigate around busy places and better manage social anxiety.</p>
         </div>
 
         <div class="project-page-section">
@@ -108,6 +108,6 @@
 
     </section>
 
-    <script src="script.js?v=4"></script>
+    <script src="script.js?v=5"></script>
 </body>
 </html>

@@ -64,10 +64,8 @@ if (role) {
 
 /* ---------- Scroll reveal ---------- */
 const revealTargets = document.querySelectorAll(
-    '.section-title, .grid-card, .project-card, .project-page-hero, ' +
-    '.project-page-hero-img, .project-page-overview, .project-page-section, ' +
-    '.project-page-image-single, .project-page-image-row, .project-page-gallery, ' +
-    '.footer'
+    '.scroll-card, .project-page-summary, .project-page-section, ' +
+    '.project-page-image-single, .project-page-image-row, .project-page-gallery'
 );
 
 if ('IntersectionObserver' in window && revealTargets.length) {

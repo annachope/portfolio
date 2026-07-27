@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Alata&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=4">
+    <link rel="stylesheet" href="style.css?v=5">
     <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/light/style.css">
 </head>
 <body>
@@ -35,20 +35,16 @@
         </button>
     </header>
 
-    <section class="project-page">
-
-        <a href="index.html#projects" class="back-btn">
-            <i class="ph-light ph-arrow-left"></i> Back to Projects
-        </a>
-
-        <div class="project-page-hero">
+    <div class="hero-split">
+        <div class="hero-split-media">
+            <img src="images/smilee/01.png" alt="Spotify UX Report cover">
+        </div>
+        <div class="hero-split-content">
+            <a href="index.html#projects" class="back-btn">
+                <i class="ph-light ph-arrow-left"></i> Back to Projects
+            </a>
             <h1>Spotify UX Report</h1>
             <p class="project-page-tagline">An in-depth UX evaluation of Spotify — covering its brand identity, user persona, and interface structure.</p>
-        </div>
-
-        <img src="images/smilee/01.png" alt="Spotify UX Report cover" class="project-page-hero-img">
-
-        <div class="project-page-overview">
             <div class="project-page-meta">
                 <div class="meta-item">
                     <span class="meta-label">Role</span>
@@ -63,9 +59,13 @@
                     <span class="meta-value">Figma, Usability Testing</span>
                 </div>
             </div>
-            <div class="project-page-summary">
-                <p>A research report analyzing Spotify across brand identity, visual hierarchy, typography, color, and ease of use — grounded in a user persona and validated with a small usability study. The goal was to understand why the product feels effortless and where its experience could still improve.</p>
-            </div>
+        </div>
+    </div>
+
+    <section class="project-page">
+
+        <div class="project-page-summary">
+            <p>A research report analyzing Spotify across brand identity, visual hierarchy, typography, color, and ease of use — grounded in a user persona and validated with a small usability study. The goal was to understand why the product feels effortless and where its experience could still improve.</p>
         </div>
 
         <div class="project-page-section">
@@ -111,6 +111,6 @@
 
     </section>
 
-    <script src="script.js?v=4"></script>
+    <script src="script.js?v=5"></script>
 </body>
 </html>
