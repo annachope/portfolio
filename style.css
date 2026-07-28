@@ -485,17 +485,21 @@ section {
     background: var(--bg-alt);
 }
 
-.scroll-card-media img {
+.scroll-card-media img,
+.scroll-card-media video {
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
-    filter: grayscale(1) contrast(1.05);
     transition: filter 0.6s var(--spring), transform 0.7s var(--spring);
 }
 
 .scroll-card:hover .scroll-card-media img {
     filter: grayscale(1) contrast(1.12) brightness(1.03);
+    transform: scale(1.035);
+}
+
+.scroll-card:hover .scroll-card-media video {
     transform: scale(1.035);
 }
 
@@ -599,10 +603,22 @@ section {
     padding: 10rem 2rem 7rem;
     display: flex;
     flex-direction: column;
-    gap: 3.25rem;
+    gap: 0;
     position: relative;
     z-index: 1;
 }
+
+/* pages that open with a full-bleed image butt it right up against the hero */
+.project-page--flush-top { padding-top: 0; }
+
+/* space between successive blocks by default (text keeps its rhythm)... */
+.project-page > * + * { margin-top: 3.25rem; }
+
+/* ...but adjacent images/videos sit flush against each other, edge to edge */
+.project-page > [class*="project-page-image"] + [class*="project-page-image"],
+.project-page > [class*="project-page-image"] + .project-page-video,
+.project-page > .project-page-video + [class*="project-page-image"],
+.project-page > .project-page-video + .project-page-video { margin-top: 0; }
 
 .back-btn {
     display: inline-flex;
@@ -749,14 +765,14 @@ section {
 .project-page-section > .project-page-video,
 .project-page-section > .project-page-image-single,
 .project-page-section > .project-page-image-row {
-    margin-top: 3rem;
-    margin-bottom: 3rem;
+    margin-top: 0rem;
+    margin-bottom: 0rem;
 }
 
 .project-page-image-row {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 0.5rem;
+    gap: 0;
 }
 
 .project-page-image-row.cols-3 {
@@ -767,7 +783,7 @@ section {
 .project-page-image-row figure {
     display: flex;
     flex-direction: column;
-    gap: 0.8rem;
+    gap: 0;
 }
 
 .project-page-image-single img,
@@ -775,18 +791,6 @@ section {
     width: 100%;
     display: block;
     object-fit: cover;
-}
-
-.project-page-image-single figcaption,
-.project-page-image-row figcaption {
-    font-family: var(--font-mono);
-    font-size: 0.76rem;
-    color: var(--muted);
-    text-align: center;
-    letter-spacing: 0.01em;
-    max-width: 60ch;
-    margin: 0 auto;
-    padding: 0 6%;
 }
 
 .project-page-links {
@@ -798,14 +802,12 @@ section {
 
 .project-page-gallery {
     columns: 4;
-    column-gap: 0.5rem;
-    margin-top: 3rem;
-    margin-bottom: 3rem;
+    column-gap: 0;
 }
 
 .project-page-gallery img {
     width: 100%;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0;
     break-inside: avoid;
     transition: transform 0.3s var(--spring), box-shadow 0.3s var(--spring);
 }
@@ -819,24 +821,13 @@ section {
 .project-page-video {
     display: flex;
     flex-direction: column;
-    gap: 0.8rem;
+    gap: 0;
 }
 
 .project-page-video video {
     width: 100%;
     display: block;
     background: #1A1A1A;
-}
-
-.project-page-video figcaption {
-    font-family: var(--font-mono);
-    font-size: 0.76rem;
-    color: var(--muted);
-    text-align: center;
-    letter-spacing: 0.01em;
-    max-width: 60ch;
-    margin: 0 auto;
-    padding: 0 6%;
 }
 
 .project-page-nav {
