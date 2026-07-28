@@ -562,6 +562,19 @@ section {
 }
 ::-webkit-scrollbar-thumb:hover { background: var(--cyan); }
 
+/* Sidebar scrollbar: hidden by default, fades in light on hover */
+.sidebar { scrollbar-width: thin; scrollbar-color: transparent transparent; }
+.sidebar:hover { scrollbar-color: rgba(0, 0, 0, 0.18) transparent; }
+.sidebar::-webkit-scrollbar { width: 8px; }
+.sidebar::-webkit-scrollbar-track { background: transparent; }
+.sidebar::-webkit-scrollbar-thumb {
+    background: transparent;
+    border: none;
+    border-radius: 999px;
+    transition: background 0.3s var(--ease);
+}
+.sidebar:hover::-webkit-scrollbar-thumb { background: rgba(0, 0, 0, 0.18); }
+
 /* ---------- Scroll reveal ---------- */
 .reveal {
     opacity: 0;
