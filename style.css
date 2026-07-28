@@ -480,7 +480,8 @@ section {
 
 .scroll-card-media {
     width: 100%;
-    height: min(78vh, 640px);
+    height: auto;
+    aspect-ratio: 16 / 9;
     overflow: hidden;
     background: var(--bg-alt);
 }
@@ -935,7 +936,6 @@ section {
         width: 100%;
     }
 
-    .scroll-card-media { height: 60vh; }
     .scroll-card-meta { padding: 1.15rem 6%; }
 
     .jump-bottom-btn {
@@ -959,7 +959,6 @@ section {
     .btn-group { flex-direction: column; align-items: stretch; width: 100%; }
     .btn { justify-content: space-between; }
 
-    .scroll-card-media { height: 48vh; }
     .scroll-card-meta { flex-wrap: wrap; }
     .scroll-card-tag { text-align: left; }
 
