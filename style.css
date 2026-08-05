@@ -119,22 +119,79 @@ h1, h2, h3 {
     color: var(--muted);
 }
 
-/* ---------- Header — invisible pill, blurs whatever scrolls beneath it ---------- */
-header {
+/* ---------- Header — invisible pill, blurs whatever scrolls beneath it ----------
+   mix-blend-mode only has real page content to blend against when it's applied to
+   the fixed/positioned element itself — on a *child* of a fixed ancestor it gets
+   trapped in that ancestor's own stacking context and never reaches the real
+   backdrop, and isolation on a child can't opt it out of an ancestor's blend
+   either (confirmed empirically) — an ancestor with mix-blend-mode flattens its
+   whole subtree into one image before blending, isolated descendants included.
+   That's exactly why the CTA can't just live inside the blended pill: its own
+   text would be differenced against the same backdrop as its own background,
+   and for some backdrop brightnesses that collapses their contrast to near zero.
+   So this is two overlapping fixed layers sharing one .nav-shell footprint —
+   .header-glass is the plain, unblended frosted pill holding the real CTA;
+   header sits on top with the difference blend for the logo/nav text, with a
+   same-sized hidden clone of the button (.visit-btn--ghost) reserving its
+   layout space so the nav links stop in the right place without overlapping it.
+   header has pointer-events:none with its real controls opted back in, so
+   clicks in its "empty" reserved area fall through to the real button below. */
+/* header and .header-glass share top+padding but have different content
+   (64px logo vs the shorter CTA button), so without an explicit shared
+   height their boxes end up different heights — same top, different bottom
+   — which pulls their vertical centers apart even though each is correctly
+   centered within its own box. Locking height to the logo's here keeps both
+   centered on the same line. */
+.nav-shell {
     position: fixed;
     top: 1.5rem;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
     align-items: center;
-    gap: 2.5rem;
+    height: calc(64px + 1.2rem);
     padding: 0.6rem 0.6rem 0.6rem 1.1rem;
     border-radius: 999px;
     z-index: 1000;
-    background-color: transparent;
-    backdrop-filter: blur(18px);
-    -webkit-backdrop-filter: blur(18px);
     width: min(1080px, 92%);
+}
+
+.header-glass {
+    background-color: transparent;
+    backdrop-filter: blur(18px) grayscale(1);
+    -webkit-backdrop-filter: blur(18px) grayscale(1);
+    justify-content: flex-end;
+}
+
+header {
+    gap: 2.5rem;
+    background-color: transparent;
+    mix-blend-mode: difference;
+    pointer-events: none;
+}
+
+header .logo,
+header .menu-toggle,
+header .nav-links a {
+    pointer-events: auto;
+}
+
+/* the mobile dropdown (below) is an opaque card, not a translucent overlay —
+   it needs its own guaranteed contrast, so difference is switched off while
+   it's open rather than let it get swept into the pill's blended composite.
+   the logo mark and hamburger bars are pre-inverted to white to feed that
+   blend, so they also need reverting to their natural dark color, or they go
+   invisible once the blend is off */
+header:has(.nav-links.active) {
+    mix-blend-mode: normal;
+}
+
+header:has(.nav-links.active) .logo-mark {
+    filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.12));
+}
+
+header:has(.nav-links.active) .menu-toggle span {
+    background: var(--ink);
 }
 
 .logo {
@@ -153,6 +210,13 @@ header {
     filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.12));
 }
 
+/* mark is drawn black in the source SVG — invert to white first so header's
+   difference blend can push it dark-on-light / light-on-dark to match
+   whatever backdrop is scrolling underneath the fixed pill */
+header .logo-mark {
+    filter: invert(1) drop-shadow(0 2px 6px rgba(0, 0, 0, 0.12));
+}
+
 .nav-links {
     display: flex;
     gap: 2rem;
@@ -167,6 +231,13 @@ li a {
 }
 
 li a:hover { color: var(--cyan-deep); }
+
+/* white source color feeds header's difference blend: reads dark on the
+   light page background and auto-inverts to stay legible over images/video */
+header .nav-links li a,
+header .nav-links li a:hover {
+    color: #fff;
+}
 
 li a::before {
     position: absolute;
@@ -185,8 +256,9 @@ li a:hover::before { width: 100%; }
 .visit-btn {
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     gap: 0.75rem;
-    padding: 0.5rem 0.5rem 0.5rem 1.4rem;
+    padding: 0.5rem 1rem;
     border-radius: 999px;
     border: 1px solid transparent;
     background: linear-gradient(135deg, var(--cyan) 0%, var(--cyan-deep) 100%);
@@ -198,6 +270,12 @@ li a:hover::before { width: 100%; }
     box-shadow: 0 12px 28px -10px rgba(0, 0, 0, 0.4);
     transition: transform 0.3s var(--spring), box-shadow 0.3s var(--spring);
     text-wrap: nowrap;
+}
+
+/* same-sized stand-in inside the blended header, reserving layout space for
+   the real button (in .header-glass) without being visible or blended itself */
+.visit-btn--ghost {
+    visibility: hidden;
 }
 
 .visit-btn .btn-icon {
@@ -233,9 +311,9 @@ li a:hover::before { width: 100%; }
     display: block;
     width: 19px;
     height: 1.5px;
-    background: var(--ink);
+    background: #fff;
     border-radius: 2px;
-    transition: transform 0.5s var(--spring), opacity 0.3s var(--ease);
+    transition: transform 0.5s var(--spring), opacity 0.3s var(--ease), background 0.25s var(--ease);
 }
 
 .menu-toggle.active span:first-child {
@@ -859,13 +937,30 @@ section {
 }
 
 @media (max-width: 768px) {
+    .nav-shell {
+        height: calc(50px + 1.2rem);
+    }
+
+    .header-glass,
     header {
-        justify-content: space-between;
-        gap: 1rem;
         padding: 0.6rem 1.1rem;
     }
 
+    header {
+        justify-content: space-between;
+        gap: 1rem;
+    }
+
     .logo-mark { height: 50px; }
+
+    /* opaque dropdown card — needs its own dark-on-light contrast, not the
+       white feeding header's difference blend above */
+    header .nav-links li a,
+    header .nav-links li a:hover {
+        color: var(--text);
+    }
+
+    header .nav-links li a:hover { color: var(--cyan-deep); }
 
     .nav-links {
         position: absolute;
