@@ -84,3 +84,35 @@ if ('IntersectionObserver' in window && revealTargets.length) {
 
     revealTargets.forEach(el => observer.observe(el));
 }
+
+/* ---------- Vertical video reel ---------- */
+const reelItems = document.querySelectorAll('.reel-item');
+
+if (reelItems.length) {
+    reelItems.forEach(item => {
+        const video = item.querySelector('.reel-video');
+        const toggle = item.querySelector('.reel-toggle');
+        if (!video || !toggle) return;
+
+        toggle.addEventListener('click', () => {
+            video.paused ? video.play() : video.pause();
+        });
+
+        video.addEventListener('play', () => toggle.setAttribute('data-state', 'playing'));
+        video.addEventListener('pause', () => toggle.setAttribute('data-state', 'paused'));
+        video.addEventListener('ended', () => { video.currentTime = 0; });
+    });
+
+    const reelObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            const item = entry.target;
+            const video = item.querySelector('.reel-video');
+            item.classList.toggle('is-active', entry.isIntersecting);
+            if (!entry.isIntersecting && video && !video.paused) {
+                video.pause();
+            }
+        });
+    }, { threshold: 0.6 });
+
+    reelItems.forEach(item => reelObserver.observe(item));
+}

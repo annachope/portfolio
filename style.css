@@ -50,6 +50,7 @@
 
 html {
     scroll-behavior: smooth;
+    scroll-snap-type: y mandatory;
 }
 
 body {
@@ -724,6 +725,7 @@ section {
     gap: 0;
     position: relative;
     z-index: 1;
+    scroll-snap-align: end;
 }
 
 /* pages that open with a full-bleed image butt it right up against the hero */
@@ -756,6 +758,7 @@ section {
     display: flex;
     min-height: 80vh;
     margin-top: 138px;
+    scroll-snap-align: start;
 }
 
 .hero-split-media {
@@ -765,12 +768,13 @@ section {
     background: var(--bg-alt);
 }
 
-.hero-split-media img {
+.hero-split-media img,
+.hero-split-media video {
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
-  
+
 }
 
 .hero-split-content {
@@ -887,6 +891,16 @@ section {
     margin-bottom: 0rem;
 }
 
+/* each image/video block sticks fully into view as you scroll past it —
+   same snap mechanic as the social reel, minus the gallery (its staggered
+   masonry columns aren't a single clean "slide" to snap to) */
+.project-page-image-single,
+.project-page-image-row,
+.project-page-video {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+}
+
 .project-page-image-row {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -954,6 +968,106 @@ section {
     padding-top: 1.75rem;
     border-top: 1px solid var(--line);
 }
+
+/* ---------- Vertical video reel — full-height scroll-snap sections ---------- */
+.reel {
+    position: relative;
+    left: 50%;
+    width: 100vw;
+    margin-left: -50vw;
+}
+
+.reel-item {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(2rem, 6vw, 6rem);
+    padding: 6rem 6%;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+}
+
+.reel-stage {
+    position: relative;
+    flex: 0 0 auto;
+    height: min(82vh, 780px);
+    aspect-ratio: 9 / 16;
+    border-radius: var(--radius);
+    overflow: hidden;
+    background: #111;
+}
+
+.reel-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.reel-toggle {
+    position: absolute;
+    left: 50%;
+    bottom: 1.25rem;
+    transform: translateX(-50%);
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.16);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    color: #fff;
+    font-size: 1.05rem;
+    cursor: pointer;
+    transition: background 0.2s var(--ease), transform 0.2s var(--spring);
+}
+
+.reel-toggle:hover {
+    background: rgba(255, 255, 255, 0.28);
+    transform: translateX(-50%) scale(1.06);
+}
+
+.reel-toggle .ph-pause { display: none; }
+.reel-toggle[data-state="playing"] .ph-play { display: none; }
+.reel-toggle[data-state="playing"] .ph-pause { display: inline; }
+
+.reel-copy {
+    flex: 0 1 360px;
+    opacity: 0;
+    transform: translateX(-28px);
+    transition: opacity 0.6s var(--ease), transform 0.6s var(--ease);
+}
+
+.reel-item.is-active .reel-copy {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.reel-copy p {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: var(--text);
+    margin-bottom: 1rem;
+}
+
+.reel-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    letter-spacing: 0.02em;
+    color: var(--cyan-deep);
+    border-bottom: 1px solid var(--line-strong);
+    padding-bottom: 0.2rem;
+    transition: opacity 0.2s var(--ease);
+}
+
+.reel-link:hover { opacity: 0.6; }
 
 /* ============================================================
    Responsive
@@ -1102,6 +1216,22 @@ section {
     .project-page-image-row,
     .project-page-image-row.cols-3 { grid-template-columns: 1fr; }
     .project-page-gallery { columns: 3; }
+
+    .reel-item {
+        flex-direction: column;
+        padding: 6.5rem 6% 3rem;
+        gap: 1.75rem;
+    }
+
+    .reel-stage { height: min(56vh, 560px); }
+
+    .reel-copy {
+        flex: none;
+        text-align: center;
+        transform: translateY(18px);
+    }
+
+    .reel-item.is-active .reel-copy { transform: translateY(0); }
 }
 
 @media (max-width: 480px) {
