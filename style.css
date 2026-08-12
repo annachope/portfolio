@@ -1077,6 +1077,13 @@ section {
 }
 
 @media (max-width: 768px) {
+    /* scroll-snap fights mobile viewport-height changes (address bar show/hide)
+       and traps scroll before it reaches controls near the bottom of a snapped
+       block — drop it entirely on small screens and let the page scroll free */
+    html {
+        scroll-snap-type: none;
+    }
+
     .nav-shell {
         height: calc(50px + 1.2rem);
     }
