@@ -1178,11 +1178,9 @@ section {
         padding-right: 6%;
     }
 
-    /* extra breathing room for the description specifically — a dense
-       paragraph reads as more "crammed" than short lines at the same margin */
+    /* left edge matches the rest of the page (logo, headings, links) —
+       the old wide max-width was what made it read as "crammed," not the margin */
     .sidebar-bio {
-        padding-left: 9%;
-        padding-right: 9%;
         max-width: none;
     }
 

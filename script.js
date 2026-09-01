@@ -43,6 +43,7 @@ if (role) {
         'Graphic Designer',
         'Motion Graphics Designer',
         'Videographer',
+        'Content Creator',
         'UI Designer',
         'Illustrator',
         'Yoga Instructor',
